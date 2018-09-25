@@ -1,6 +1,8 @@
 #!/bin/bash
 
-for i in {0..2000}
+mkdir -p keystore
+
+for i in $(seq 1 $1)
 do
-	geth --datadir ./ethereum_private/ account new --password ./a.txt
+	geth account new --keystore ./keystore --password <(echo $2)
 done
